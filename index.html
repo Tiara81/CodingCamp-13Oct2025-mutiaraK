@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Todo List</h1>
+    <form id="todo-form">
+      <input type="text" id="task-input" placeholder="Add a todo..." required />
+      <input type="date" id="date-input" required />
+      <select id="category-input" required>
+        <option value="">Pilih kategori</option>
+        <option value="general">General</option>
+        <option value="chore">Chore</option>
+        <option value="school">School</option>
+      </select>
+      <button type="submit">+</button>
+    </form>
+
+    <div class="controls">
+      <div class="dropdown">
+        <button id="filter-btn">FILTER ▼</button>
+        <div id="filter-options" class="dropdown-content">
+          <button id="filter-date">Filter by Date</button>
+          <button id="filter-category">Filter by Category</button>
+          <button id="filter-task">Filter by Task</button>
+        </div>
+      </div>
+      <button id="reset-filter-btn">RESET FILTER</button>
+      <button id="delete-all-btn">DELETE ALL</button>
+    </div>
+
+    <ul id="todo-list"></ul>
+  </div>
+
+  <footer>
+    <p>Made with ❤️ by Mutiara | 2025</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
