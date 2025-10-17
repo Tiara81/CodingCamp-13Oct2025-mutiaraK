@@ -43,7 +43,15 @@ button {
 }
 
 #delete-all-btn{
-  background-color: #e74c3c;
+  background-color: #bc3627;
+}
+
+#delete-all-btn:hover{
+  background-color: #f24a37;
+}
+
+button:hover {
+  background-color: #b395eb;
 }
 
 .controls {
