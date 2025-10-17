@@ -127,7 +127,7 @@ filterDateBtn.addEventListener('click', () => {
 });
 
 filterCategoryBtn.addEventListener('click', () => {
-  const categoryKeyword = prompt('Masukkan kategori (General, Chore, School):').toLowerCase();
+  const categoryKeyword = prompt('Masukkan kategori (Chores, General, Groceries, Home, School, Work):').toLowerCase();
   const items = todoList.querySelectorAll('li');
   items.forEach(item => {
     const itemCategory = item.getAttribute('data-category').toLowerCase();
