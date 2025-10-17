@@ -23,22 +23,25 @@ window.addEventListener('load', () => {
   savedTasks.forEach(task => addTaskToDOM(task.text, task.date, task.category, task.done));
 });
 
+// Add new task func and validate input
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   let task = taskInput.value.trim();
   const date = dateInput.value;
   const category = categoryInput.value;
 
+  // Validate inputs
   if (!task || !date || !category) {
     alert('Isi semua kolom termasuk kategori!');
     return;
   }
 
+  // Capitalize first letter of task
   task = task.charAt(0).toUpperCase() + task.slice(1);
 
   addTaskToDOM(task, date, category, false);
   saveTask(task, date, category, false);
-  form.reset();
+  form.reset(); //mengosongkan form setelah submit
 });
 
 function addTaskToDOM(task, date, category, done) {
@@ -48,9 +51,11 @@ function addTaskToDOM(task, date, category, done) {
   li.setAttribute('data-date', date);
   if (done) li.classList.add('done');
 
+  // isi konten li
   const span = document.createElement('span');
   span.innerHTML = `<strong>${category}</strong> | ${task} - ${date}`;
 
+  // tombol done
   const doneBtn = document.createElement('button');
   doneBtn.textContent = 'Done';
   doneBtn.className = 'done-btn';
@@ -59,6 +64,7 @@ function addTaskToDOM(task, date, category, done) {
     updateDoneStatus(task, date, category, li.classList.contains('done'));
   });
 
+  // tombol delete
   const deleteBtn = document.createElement('button');
   deleteBtn.textContent = 'Delete';
   deleteBtn.className = 'delete-btn';
@@ -72,6 +78,7 @@ function addTaskToDOM(task, date, category, done) {
   li.appendChild(deleteBtn);
   todoList.appendChild(li);
 
+  // Drag and drop events
   li.addEventListener('dragstart', () => li.classList.add('dragging'));
   li.addEventListener('dragend', () => li.classList.remove('dragging'));
 }
@@ -149,6 +156,7 @@ todoList.addEventListener('dragover', (e) => {
   }
 });
 
+// fungsi bantu untuk drag and drop
 function getDragAfterElement(container, y) {
   const draggableElements = [...container.querySelectorAll('li:not(.dragging)')];
   return draggableElements.reduce((closest, child) => {

@@ -6,22 +6,28 @@
   <title>To-Do List</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-  <div class="container">
+  <!-- pembuatan container utama -->
+  <div class="container"> 
     <h1>Todo List</h1>
     <form id="todo-form">
       <input type="text" id="task-input" placeholder="Add a todo..." required />
       <input type="date" id="date-input" required />
       <select id="category-input" required>
         <option value="">Pilih kategori</option>
-        <option value="general">General</option>
-        <option value="chore">Chore</option>
+        <option value="chore">Chores</option>
+        <option value="general">General</option>  
+        <option value="school">Groceries</option>  
+        <option value="school">Home</option>    
         <option value="school">School</option>
+        <option value="work">Work</option>
       </select>
       <button type="submit">+</button>
     </form>
 
-    <div class="controls">
+    <!-- // tombol kontrol untuk filter dan hapus -->
+    <div class="controls"> 
       <div class="dropdown">
         <button id="filter-btn">FILTER ▼</button>
         <div id="filter-options" class="dropdown-content">
@@ -34,11 +40,12 @@
       <button id="delete-all-btn">DELETE ALL</button>
     </div>
 
+    <!-- // Daftar todo (tasks) akan ditampilkan di sini -->
     <ul id="todo-list"></ul>
   </div>
 
   <footer>
-    <p>Made with ❤️ by Mutiara | 2025</p>
+    <p>Made with ❤️ by Mutiara | 2025</p> //gapake hati sih, B aja
   </footer>
 
   <script src="js/script.js"></script>
